@@ -6,6 +6,7 @@ Este repositorio contiene los archivos y el código fuente para una serie de pro
 ## Contenido
 
 - [Configuración del Entorno](#configuración-del-entorno)
+- [Proyectos](#proyectos)
 
 ## Configuración del Entorno
 
@@ -15,3 +16,21 @@ Para desarrollar y cargar estos proyectos en el ESP8266, se utiliza PlatformIO c
 2. [PlatformIO](https://platformio.org/)
 
 Sigue las instrucciones de instalación proporcionadas en los enlaces anteriores para configurar tu entorno de desarrollo.
+
+## Proyectos
+
+1. **Proyecto 1: Blink**
+	- Descripción: Proyecto para probar el funcionamiento del IDE con el ESP8266.
+	Archivos: `1\ -\ Blink/`
+
+2. **Proyecto 2: DHT11**
+   	- Descripción: Sensor de temperatura y humedad utilizando el ESP8266.
+
+3. **Proyecto 3: LCD I2C**
+	- Descripción: Implementación de la pantalla LCD en el ESP8266 con ayuda de la interfaz I2C.
+
+4. **Proyecto 4: DHT11 con la pantalla LCD**
+	- Descripción: Sensor de temperatura y humedad con capacidad de visualización en la pantalla LCD.
+
+5. **Proyecto 5: MQ135**
+	- Descripción: Sensor de calidad del aire utilizando el MQ135.
