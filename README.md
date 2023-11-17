@@ -21,7 +21,7 @@ Sigue las instrucciones de instalación proporcionadas en los enlaces anteriores
 
 1. **Proyecto 1: Blink**
 	- Descripción: Proyecto para probar el funcionamiento del IDE con el ESP8266.
-	Archivos: `1\ -\ Blink/`
+	- Archivos: [1 - Blink](https://github.com/Luisangel2801/Servicio-Social/tree/main/1%20-%20Blink)
 
 2. **Proyecto 2: DHT11**
    	- Descripción: Sensor de temperatura y humedad utilizando el ESP8266.
