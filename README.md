@@ -25,12 +25,16 @@ Sigue las instrucciones de instalación proporcionadas en los enlaces anteriores
 
 2. **Proyecto 2: DHT11**
    	- Descripción: Sensor de temperatura y humedad utilizando el ESP8266.
+	- Archivos: [2 - DHT11](https://github.com/Luisangel2801/Servicio-Social/tree/main/2%20-%20DHT11)
 
 3. **Proyecto 3: LCD I2C**
 	- Descripción: Implementación de la pantalla LCD en el ESP8266 con ayuda de la interfaz I2C.
+	- Archivos: [3 - LCD I2C module](https://github.com/Luisangel2801/Servicio-Social/tree/main/3%20-%20LCD%20I2C%20module)
 
 4. **Proyecto 4: DHT11 con la pantalla LCD**
 	- Descripción: Sensor de temperatura y humedad con capacidad de visualización en la pantalla LCD.
+	- Archivos: [4 - DHT11 with LCD Screen](https://github.com/Luisangel2801/Servicio-Social/tree/main/4%20-%20DHT11%20with%20LCD%20Screen)
 
 5. **Proyecto 5: MQ135**
 	- Descripción: Sensor de calidad del aire utilizando el MQ135.
+	- Archivos: [5 - MQ135](https://github.com/Luisangel2801/Servicio-Social/tree/main/5%20-%20MQ135)
