@@ -1,18 +1,17 @@
 /*
- *  Humidity Sensor
- *  Autor: Luis Ángel Cruz Díaz
- *  Fecha:  16/11/2023
+ *	Humidity Sensor
+ *	Autor: Luis Ángel Cruz Díaz
+ *	Fecha:  16/11/2023
  *
- *  Este programa lee la humedad y temperatura de un sensor DHT22
- *  y lo muestra por el puerto serial.
+ *	Este programa lee la humedad y temperatura de un sensor DHT22
+ *	y lo muestra por el puerto serial.
  *
- *  El sensor DHT22 se conecta al pin 14 (D5) del ESP8266
+ *	El sensor DHT22 se conecta al pin 14 (D5) del ESP8266
  *
- * ESP8266      DHT22
- * VCC----------VCC
- * GND----------GND
- * 14-----------DATA
- *
+ *	DHT22		ESP8266
+ *	VCC---------VCC
+ *	GND---------GND
+ *	DATA--------GPIO 14 (D5)
  */
 
 #include <Arduino.h>
@@ -29,15 +28,15 @@ unsigned long tiempoActual = 0;
 DHT dht(sensor, DHT11);
 
 void setup() {
-  Serial.begin(9600);
-  dht.begin();
+	Serial.begin(9600);
+	dht.begin();
 }
 
 void loop() {
-  if (millis() % 2000 == 0) {
-    tiempoActual = millis();
-    temperatura = dht.readTemperature();
-    humedad = dht.readHumidity();
-    Serial.print("Temperatura: " + String(temperatura) + " Humedad: " + String(humedad) + "\n");
-  }
+	if (millis() % 2000 == 0) {
+		tiempoActual = millis();
+		temperatura = dht.readTemperature();
+		humedad = dht.readHumidity();
+		Serial.print("Temperatura: " + String(temperatura) + " Humedad: " + String(humedad) + "\n");
+	}
 }
