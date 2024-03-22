@@ -3,11 +3,14 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="hi"
-                 name="Help Instance"
+                 name="Documentación para el Servicio Social"
                  start-page="Documentacion.md">
 
     <toc-element topic="Documentacion.md"/>
     <toc-element toc-title="Raspberry">
+        <toc-element topic="Instalación-de-Raspberry-Pi-OS.md">
+            <toc-element topic="Utilizar-Raspberry-Pi-sin-monitor.md"/>
+        </toc-element>
         <toc-element topic="Docker.md"/>
     </toc-element>
 </instance-profile>

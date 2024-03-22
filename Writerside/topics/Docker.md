@@ -5,7 +5,10 @@ de software.
 Los contenedores permiten empaquetar una aplicación con todas sus dependencias, lo que garantiza que la aplicación se
 ejecute de la misma forma en cualquier entorno.
 
-Realizamos la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, utilizando el sistema operativo Raspberry Pi OS.
+![Docker](docker.png) {width="700"}
+
+> Realizamos la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, utilizando el sistema operativo Raspberry Pi OS.
+> {style="warning"}
 
 ## Instalación
 Para instalar Docker en una Raspberry Pi, seguimos los siguientes pasos:
@@ -15,43 +18,44 @@ Para instalar Docker en una Raspberry Pi, seguimos los siguientes pasos:
     ```bash
     sudo apt update
     ```
-   
+
 2. Descargar el siguiente fichero de instalación de Docker.
 
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh
     ```
+
 3. Ejecutar el script de instalación de Docker.
 
     ```bash
     sudo sh get-docker.sh
     ```
+
 4. Para evitar utilizar el comando `sudo` cada vez que ejecutamos un comando de Docker, agregamos el usuario al
    grupo `docker`.
 
     ```bash
     sudo usermod -aG docker $USER
     ```
+
 5. Reiniciamos la Raspberry Pi.
 
     ```bash
     sudo reboot
     ```
-6. Verificamos que Docker se ha instalado correctamente. Si todo ha salido bien, el comando `docker --version` mostrará la versión de Docker instalada y el
-   comando `docker run hello-world` descargará una imagen de prueba y la ejecutará en un contenedor.
+
+6. Verificamos que Docker se ha instalado correctamente ejecutando el siguiente comando.
 
     ```bash
     docker --version
-    ```
-    ```bash
-    docker run hello-world
     ```
 
 7. Creamos un directorio para almacenar los datos de los contenedores que crearemos en el futuro.
 
     ```bash
     mkdir ~/docker
-    ``` 
+    ```
+
 8. Cambiamos los permisos del directorio para que el usuario pueda escribir en él.
 
     ```bash
@@ -85,6 +89,5 @@ Para instalar Docker en una Raspberry Pi, seguimos los siguientes pasos:
 `docker exec -it CONTAINER_ID comando`
 : Ejecuta un comando en un contenedor en ejecución.
 
-## Referencias
-
-- [Docker](https://www.docker.com/)
+> Se realizó la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, lo que permitirá instalar aplicaciones con
+> todas sus dependencias y ejecutarlas de la misma forma en cualquier entorno. Además, se creó un directorio para almacenar los datos de los contenedores que se crearán en el futuro.
