@@ -1,4 +1,4 @@
-# Instalación de Raspberry Pi OS
+# Raspberry Pi OS
 
 Raspberry Pi OS es un sistema operativo basado en Debian, diseñado para la Raspberry Pi. Este sistema operativo es el recomendado para la Raspberry Pi, ya que es el que mejor soporte tiene y el que mejor rendimiento ofrece.
 

@@ -13,6 +13,7 @@
         </toc-element>
         <toc-element topic="Docker.md">
             <toc-element topic="Instalación-de-InfluxDB.md"/>
+            <toc-element topic="Instalación-de-NodeRed.md"/>
         </toc-element>
     </toc-element>
 </instance-profile>

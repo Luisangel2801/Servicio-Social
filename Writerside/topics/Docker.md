@@ -1,4 +1,4 @@
-# Instalación de Docker
+# Docker
 
 Docker es una plataforma de código abierto que permite automatizar el despliegue de aplicaciones dentro de contenedores
 de software.

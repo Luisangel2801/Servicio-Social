@@ -1,4 +1,4 @@
-# Instalación de InfluxDB
+# InfluxDB
 
 InfluxDB es una base de datos de series temporales de código abierto, está diseñada para manejar altos volúmenes de escritura 
 y lectura, y es capaz de almacenar y consultar datos de series temporales en tiempo real. En este tutorial, se explicará 
@@ -10,7 +10,7 @@ cómo instalar InfluxDB en un sistema operativo basado en Debian.
 > {style = warning}
 
 
-## Instalación de InfluxDB 
+## Instalación
 
 1. **Actualizar el sistema** 
 
@@ -41,10 +41,10 @@ cómo instalar InfluxDB en un sistema operativo basado en Debian.
    
     <tabs>
         <tab title="InfluxDB 1.8">
-            <code-block lang="bash"> docker run --name influxdb -itd --restart=always -p 8086:8086 -p 8083:8083 -p 2003:2003 -v /docker/influxdb/var/lib/influxdb:/var/lib/influxdb -v /docker/influxdb/etc/influxdb:/etc/influxdb influxdb:1.8</code-block>
+            <code-block lang="bash"> docker run --name influxdb -itd --restart=always -p 8086:8086 -p 8083:8083 -p 2003:2003 -v ~/docker/influxdb/var/lib/influxdb:/var/lib/influxdb -v /docker/influxdb/etc/influxdb:/etc/influxdb influxdb:1.8</code-block>
         </tab>
         <tab title="InfluxDB 3.0">
-            <code-block lang="bash"> docker run --name influxdb -itd  --restart=always -p 8086:8086 -p 8083:8083 -p 2003:2003  -v /docker/influxdb/var/lib/influxdb:/var/lib/influxdb -v /docker/influxdb/etc/influxdb:/etc/influxdb influxdb</code-block>
+            <code-block lang="bash"> docker run --name influxdb -itd  --restart=always -p 8086:8086 -p 8083:8083 -p 2003:2003  -v ~/docker/influxdb/var/lib/influxdb:/var/lib/influxdb -v /docker/influxdb/etc/influxdb:/etc/influxdb influxdb</code-block>
         </tab>
     </tabs>
 
