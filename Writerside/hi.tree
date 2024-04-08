@@ -7,6 +7,9 @@
                  start-page="Documentacion.md">
 
     <toc-element topic="Documentacion.md"/>
+    <toc-element topic="Entorno-de-Desarrollo.md">
+        <toc-element topic="Instalacion-de-Linux-Mint.md"/>
+    </toc-element>
     <toc-element toc-title="Raspberry">
         <toc-element topic="Instalación-de-Raspberry-Pi-OS.md">
             <toc-element topic="Utilizar-Raspberry-Pi-sin-monitor.md"/>
