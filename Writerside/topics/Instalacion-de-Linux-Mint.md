@@ -73,7 +73,43 @@ Linux Mint es una distribución de Linux basada en Ubuntu que ofrece una experie
     </step>
 </procedure>
 
-## Configuración de Linux Mint
+## Post-instalación
+Despues de instalar Linux Mint, es necesario realizar algunas configuraciones adicionales para configurar el grub.
+
+<procedure title="Configuración de Grub" id="Configuracion-Grub" type="steps">
+    <step>
+        <p><control> Selección del sistema operativo por defecto</control></p>
+        <p>Abre el archivo de configuración de Grub en un editor de texto:</p>
+        <code>sudo nano /etc/default/grub</code>
+        <p> Podemos especificar con que sistema operativo queremos que inicie por defecto, para ello modificamos la siguiente línea:</p>
+        <code>GRUB_DEFAULT</code>
+        <warning> El valor de Windows depende de la posición en la lista de sistemas operativos que aparecen en el menú al iniciar el equipo. Es importante recordar que la lista comienza en 0.</warning>
+        <list>
+            <li>
+                <p>Si queremos que inicie con Windows, cambiamos el valor a 2.</p>
+                <code>GRUB_DEFAULT=2</code>
+            </li>
+            <li>
+                <p>Si queremos que inicie con Linux Mint, cambiamos el valor a 0.</p>
+                <code>GRUB_DEFAULT=0</code>
+            </li>
+        </list>
+    </step>
+    <step>
+        <p><control>Configuración del tiempo de espera</control></p>
+        <p>Podemos configurar el tiempo de espera para seleccionar el sistema operativo en el arranque. En el archivo de configuración de Grub, busca la línea:</p>
+        <code>GRUB_TIMEOUT</code>
+        <p>Por ejemplo, si queremos que el tiempo de espera sea de 10 segundos, cambiamos el valor a 10:</p>
+        <code>GRUB_TIMEOUT=10</code>
+    </step>
+    <step>
+        <p><control>Guardar los cambios</control></p>
+        <p>Guarda los cambios y cierra el editor de texto. Luego, ejecuta el siguiente comando para aplicar los cambios:</p>
+        <code>sudo update-grub</code>
+    </step>
+</procedure>
+
+## Configuración adional
 
 Una vez instalado Linux Mint, es necesario realizar algunas configuraciones básicas para personalizar el sistema operativo y asegurar su correcto funcionamiento.
 
