@@ -10,6 +10,7 @@
     <toc-element topic="Instalacion-de-Linux-Mint.md">
         <toc-element topic="Instalación-de-Java.md"/>
         <toc-element topic="Instalación-de-Arduino-IDE.md"/>
+        <toc-element topic="Instalación-de-Vscode-y-PlatformIO.md"/>
     </toc-element>
     <toc-element toc-title="Raspberry">
         <toc-element topic="Instalación-de-Raspberry-Pi-OS.md">
