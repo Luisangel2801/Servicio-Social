@@ -37,19 +37,19 @@ El siguiente código funciona para ambas tarjetas de desarrollo, se define el pi
          *  ESP32
          *  Led integrado = Pin 2 (D2)
          */
-        #include &lt;Arduino.h&gt;
-        <br>
+        &emsp;
+        #include &lt;Arduino.h &gt;
         #ifdef ESP8266_BOARD
             int led = 16;
         #elif defined(ESP32_BOARD)
             int led = 2;
         #endif
-        <br>
+        &emsp;
         void setup() {
             Serial.begin(9600);		// iniciar puerto serial
             pinMode(led, OUTPUT);	// inicializar GPIO 2 como salida
         }
-        <br>
+        &emsp;
         void loop() {
             digitalWrite(led, HIGH);	// apaga el LED (HIGH es ALTO y es el nivel de voltaje)
             Serial.println(&quot;LED OFF&quot;);
@@ -67,7 +67,7 @@ El siguiente código funciona para ambas tarjetas de desarrollo, se define el pi
             board = esp32dev
             framework = arduino
             build_flags = -D ESP32_BOARD
-            <br>
+            &emsp;
             [env:esp8266]
             platform = espressif8266
             board = esp12e
