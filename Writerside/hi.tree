@@ -21,4 +21,7 @@
             <toc-element topic="Instalación-de-NodeRed.md"/>
         </toc-element>
     </toc-element>
+    <toc-element toc-title="Circuitos">
+        <toc-element topic="Blink.md"/>
+    </toc-element>
 </instance-profile>
