@@ -26,9 +26,9 @@ El siguiente código funciona para ambas tarjetas de desarrollo, se define el pi
         <code-block lang="c++">
         /*  Blink ESP8266
          *  Autor: Luis Angel Cruz Diaz
-         *  Fecha: 16/11/2023
          *
          *  Este programa realiza el parpadeo de un LED integrado en la placa ESP8266 y ESP32.
+         *  para prueba de funcionamiento del IDE PlatformIO
          *
          *  ESP8266
          *  Led integrado rojo = Pin 16 (GPIO 2)
@@ -46,17 +46,17 @@ El siguiente código funciona para ambas tarjetas de desarrollo, se define el pi
         #endif
         &emsp;
         void setup() {
-            Serial.begin(9600);		// iniciar puerto serial
-            pinMode(led, OUTPUT);	// inicializar GPIO 2 como salida
+            Serial.begin(9600);     // iniciar puerto serial
+            pinMode(led, OUTPUT);   // inicializar GPIO 2 como salida
         }
         &emsp;
         void loop() {
-            digitalWrite(led, HIGH);	// apaga el LED (HIGH es ALTO y es el nivel de voltaje)
+            digitalWrite(led, HIGH);    // apaga el LED en el ESP8266 y enciende el LED en el ESP32
             Serial.println(&quot;LED OFF&quot;);
-            delay(10000);				// espera 1000 milisegundos = un segundo
-            digitalWrite(led, LOW);		// enciende el LED (LOW es BAJO y es el nivel de voltaje)
+            delay(1000);               // espera 1000 milisegundos = un segundo
+            digitalWrite(led, LOW);     // enciende el LED en el ESP8266 y apaga el LED en el ESP32
             Serial.println(&quot;LED ON&quot;);
-            delay(10000);				// espera 1000 miliasegundos = un segundo
+            delay(1000);               // espera 1000 miliasegundos = un segundo
         }
         </code-block>
     </tab>
