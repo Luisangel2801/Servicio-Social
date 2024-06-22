@@ -22,8 +22,10 @@
  *	La dirección 0x23 es la dirección por defecto, pero si se conecta el pin ADDR a VCC, 
  *	la dirección pasa a ser 0x5c.
 */
-BH1750 luxometro(0x23);
-unsigned long tiempoActual = 0;
+BH1750 luxometro(0x23);             // Dirección I2C del sensor de luz
+unsigned int delayTime = 2000;      // Tiempo de espera entre lecturas
+unsigned long tiempoAnterior = 0;
+
 
 void setup(){
 	Serial.begin(9600);
@@ -39,12 +41,14 @@ void setup(){
  *			- Modo de medición única de alta resolución 2 (ONE_TIME_HIGH_RES_MODE_2)
  *			- Modo de medición única de baja resolución (ONE_TIME_LOW_RES_MODE)
  */
-	luxometro.begin(BH1750::CONTINUOUS_HIGH_RES_MODE_2);
+	luxometro.begin(BH1750::CONTINUOUS_HIGH_RES_MODE_2);    // Inicializa el sensor en modo de medición continua de alta resolución 2
 }
 
 void loop(){
-	if(millis() % 2000 == 0){
+    unsigned long tiempoActual = millis();
+	if(tiempoActual - tiempoAnterior >= delayTime){
+        tiempoAnterior = tiempoActual;
 		uint16_t lux = luxometro.readLightLevel();
-		Serial.print("Luz: " + String(lux) + " lx\n");
+		Serial.println("Luz: " + String(lux) + " lx");
 	}
 }
