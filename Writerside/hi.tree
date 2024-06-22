@@ -24,5 +24,6 @@
     <toc-element toc-title="Circuitos">
         <toc-element topic="Blink.md"/>
         <toc-element topic="Sensor-DHT.md"/>
+        <toc-element topic="Pantalla-LCD.md"/>
     </toc-element>
 </instance-profile>
