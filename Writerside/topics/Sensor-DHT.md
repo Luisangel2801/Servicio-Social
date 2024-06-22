@@ -73,23 +73,21 @@ El siguiente código permite leer la temperatura y humedad del sensor DHT y most
         /*
          *  Humidity Sensor
          *  Autor: Luis Ángel Cruz Díaz
-         *  Fecha:  16/11/2023
          *
-         *  Este programa lee la humedad y temperatura de un sensor DHT22
-         *  y lo muestra por el monitor serial.
+         *  Este programa lee la humedad y temperatura de un sensor DHT22 o un DHT11
+         *  y muestra los valores en el puerto serial.
          *
-         *  El sensor DHT22 se conecta al pin 14 (D5) del ESP8266
-         *
+         *  El sensor DHT22 o el DHT 11 se conecta al pin 14 (D5) del ESP8266
          *  DHT22       ESP8266
          *  VCC---------VCC
          *  GND---------GND
          *  DATA--------GPIO 14 (D5)
          *
-         * El sensor DHT22 se conecta al pin 5 (D5) del ESP32
-         *  DHT22       ESP32
-         *  VCC---------3.3V
-         *  GND---------GND
-         *  DATA--------GPIO 5 (D5)
+         *  El sensor DHT22 o el DHT 11 se conecta al pin 5 (D5) del ESP32
+         *  DHT22        ESP32
+         *  VCC----------VCC
+         *  GND----------GND
+         *  DATA---------GPIO 5 (D5)
          */
         &emsp;
         #include &lt;Arduino.h&gt;
@@ -105,10 +103,10 @@ El siguiente código permite leer la temperatura y humedad del sensor DHT y most
         &emsp;
         float temperatura;
         float humedad;
-        unsigned long tiempoActual = 0;
+        float tiempoAnterior = 0;
         &emsp;
-        // Si queremos usar el DHT22 en lugar del DHT11, cambiamos el tipo de sensor a DHT22
-        DHT dht(sensor, DHT11);
+        // Si queremos usar el DHT11 en lugar del DHT22, cambiamos el tipo de sensor a DHT22
+        DHT dht(sensor, DHT22);
         &emsp;
         void setup() {
             Serial.begin(9600);
@@ -116,12 +114,12 @@ El siguiente código permite leer la temperatura y humedad del sensor DHT y most
         }
         &emsp;
         void loop() {
-            // Si han pasado 2 segundos, leemos la temperatura y humedad
-            if (millis() % 2000 == 0) {
-                tiempoActual = millis();
+            float tiempo = millis();
+            if (tiempo - tiempoAnterior > 2000) {   // Lee la temperatura y humedad cada 2 segundos
+                tiempoAnterior = tiempo;
                 temperatura = dht.readTemperature();
                 humedad = dht.readHumidity();
-                Serial.print("Temperatura: " + String(temperatura) + " Humedad: " + String(humedad) + "\n");
+                Serial.println(&quot;Temperatura: &quot; + String(temperatura) + &quot; Humedad: &quot; + String(humedad) + &quot;%&quot;);
             }
         }
         </code-block>
