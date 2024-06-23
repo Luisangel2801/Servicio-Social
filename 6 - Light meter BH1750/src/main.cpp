@@ -11,6 +11,12 @@
  *	GND---------GND
  *	SDA---------GPIO4 (D2)
  *	SCL---------GPIO5 (D1)
+ *
+ *  BH1750  ESP32
+ *  VCC---------VIN
+ *  GND---------GND
+ *  SDA---------GPIO21
+ *  SCL---------GPIO22
  */
 
 #include <Arduino.h>
@@ -46,9 +52,9 @@ void setup(){
 
 void loop(){
     unsigned long tiempoActual = millis();
-	if(tiempoActual - tiempoAnterior >= delayTime){
+    if(tiempoActual - tiempoAnterior >= delayTime){
         tiempoAnterior = tiempoActual;
-		uint16_t lux = luxometro.readLightLevel();
-		Serial.println("Luz: " + String(lux) + " lx");
-	}
+        uint16_t lux = luxometro.readLightLevel();
+        Serial.println("Luz: " + String(lux) + " lx");
+    }
 }
