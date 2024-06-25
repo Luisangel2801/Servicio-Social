@@ -3,23 +3,28 @@
  *	Autor: Luis Ángel Cruz Díaz
  *	Fecha:  16/11/2023
  *
- *	Este programa muestra cáracteres en una pantalla LCD la temperatura y humedad
+ *	Este programa muestra la temperatura y humedad en la pantalla LCD
  *
  *	El programa utiliza la librería LiquidCrystal_I2C para controlar la pantalla LCD
  *	y la librería DHT para controlar el sensor de humedad y temperatura
  *  
- *	El sensor de humedad y temperatura DHT11 se conecta de la siguiente manera:
- *	DHT11	ESP8266
- *	VCC-----VIN
- *	GND-----GND
- *	DATA----GPIO14 (D5)
+ *	El sensor de humedad y temperatura DHT11 o el DHT22 se conecta con el ESP8266 de la siguiente manera:
+ *
+ *  DHT11   ESP8266         LCD     Power Supply
+ *  DATA----GPIO14 (D5)
+ *  VCC-----VIN-------------VCC-----5V
+ *  GND-----GND-------------GND-----GND
+ *          GPIO4 (D2)------SDA
+ *          GPIO5 (D1)------SCL
  * 
- *	La pantalla LCD se conecta de la siguiente manera:
- *	LCD		ESP8266
- *	VCC-----VIN
- *	GND-----GND
- *	SDA-----GPIO4 (D2)
- *	SCL-----GPIO5 (D1)
+ * El sensor de humedad y temperatura DHT11 o el DHT22 se conecta con el ESP32 de la siguiente manera:
+ * 
+ *  DHT11   ESP32           LCD     Power Supply
+ *  DATA----GPIO 5 (D5)
+ *  VCC-----VIN-------------VCC-----5V
+ *  GND-----GND-------------GND-----GND
+ *          GPIO21 (D21)----SDA
+ *          GPIO22 (D22)----SCL
  */
 
 #include <Arduino.h>
@@ -28,14 +33,20 @@
 #include <DHT.h>
 #include <DHT_U.h>
 
+// Pin del sensor según el modelo de placa
+#ifdef ESP8266_BOARD
+    int sensor = 14;
+#elif defined(ESP32_BOARD)
+    int sensor = 5;
+#endif
+
+// Si queremos usar el DHT11 en lugar del DHT22, cambiamos el tipo de sensor a DHT11
+DHT dht(sensor,DHT22);
 LiquidCrystal_I2C lcd(0x27,16,2);
 
-int sensor = 14;
 double tempF,tempC;
 int humedad;
-DHT dht(sensor,DHT11); // Si queremos usar el DHT22 en lugar del DHT11, cambiamos el tipo de sensor a DHT22
-
-unsigned long tiempoActual = 0; // Variable para almacenar el tiempo actual
+float tiempoAnterior = 0;
 
 void setup() {
 	Serial.begin(9600);
@@ -46,8 +57,9 @@ void setup() {
 
 void loop() {
 	// Si han pasado 2 segundos, leemos la temperatura y humedad
-	if (millis() % 2000 == 0) {
-		tiempoActual = millis();
+	int tiempoActual = millis();
+    if (tiempoActual - tiempoAnterior >= 2000) {
+		tiempoAnterior = tiempoActual;
 		// Lectura de la temperatura y humedad
 		tempC = dht.readTemperature();    // Temperatura en grados centígrados
 		tempF = dht.readTemperature(true);// Temperatura en grados Fahrenheit
@@ -55,7 +67,7 @@ void loop() {
 		// Mostramos la temperatura y humedad en el LCD
 		lcd.clear();
 		lcd.setCursor(0,0);
-		lcd.print("Temp: " + String(tempC) + " C");
+		lcd.print("Temp: " + String(tempC) + " "+ (char)223 +"C");
 		lcd.setCursor(0,1);
 		lcd.print("Humedad: " + String(humedad) + " %");
 	}
