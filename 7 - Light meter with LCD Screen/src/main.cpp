@@ -35,6 +35,9 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 // La dirección I2C del sensor de iluminación es 0x23
 BH1750 luxometro(0x23);
 
+int tiempoAnterior = 0;
+int pausa = 2000;
+
 void setup(){
 	Wire.begin();
 	luxometro.begin(BH1750::CONTINUOUS_HIGH_RES_MODE_2);
@@ -43,7 +46,9 @@ void setup(){
 }
 
 void loop(){
-	if (millis() % 2000 == 0) {
+    int tiempoActual = millis();
+	if (tiempoActual - tiempoAnterior >= pausa) {
+        tiempoAnterior = tiempoActual;
 		uint16_t lux = luxometro.readLightLevel();
 		lcd.clear();
 		lcd.setCursor(0,0);
