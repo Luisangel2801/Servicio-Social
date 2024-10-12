@@ -8,21 +8,24 @@
  *	El programa utiliza la librería LiquidCrystal_I2C para controlar la pantalla LCD
  *	y la librería BH1750 para controlar el sensor de iluminación
  *  
- *	El sensor de luz se conecta de la siguiente manera:
+ ************************************************************************************
+ *	El sensor de luz y la pantalla LCD se conectan al ESP8266 de la siguiente manera:
  *	
- *	BH1750	ESP8266
- *	VCC-----VIN
- *	GND-----GND
- *	SDA-----GPIO4 (D2)
- *	SCL-----GPIO5 (D1)
- *	ADDR----VCC resitencia 10K
- * 
- *	La pantalla LCD se conecta de la siguiente manera:
- *	LCD		ESP8266
- *	VCC-----VIN
- *	GND-----GND
- *	SDA-----GPIO4 (D2)
- *	SCL-----GPIO5 (D1)
+ *  BH1750      ESP8266         LCD     Power Supply
+ *	VCC---------------------------------3.3V
+ *	GND---------GND-------------GND-----GND
+ *	SDA---------GPIO4 (D2)------SDA
+ *	SCL---------GPIO5 (D1)------SCL
+ *              VIN-------------VCC-----5V
+ ************************************************************************************
+ *	El sensor de luz y la pantalla LCD se conectan al ESP32 de la siguiente manera:
+ *	
+ *  BH1750      ESP32           LCD     Power Supply
+ *	VCC---------------------------------3.3V
+ *	GND---------GND-------------GND-----GND
+ *	SDA---------GPIO21 (D21)----SDA
+ *	SCL---------GPIO22 (D22)----SCL
+ *              VIN-------------VCC-----5V
  */
 #include <Arduino.h>
 #include <Wire.h>
