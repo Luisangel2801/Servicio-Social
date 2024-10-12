@@ -32,25 +32,25 @@ El módulo ESP8266 es un módulo de bajo costo que permite la conexión a Intern
                 Serial.print(&quot;Conectando a: &quot;);
                 Serial.print(ssid);
                 Serial.print(&quot; &quot;);
-                 &emsp;
+                &emsp;
                 // Funciones de conexión
                 WiFi.begin(ssid, password); // Proporcionar características de red
                 &emsp;
                 // Secuencia que hace parpadear los leds durante el intento de conexión.
-                while (WiFi.status() != WL_CONNECTED and cont < max_intentos) {
+                while (WiFi.status() != WL_CONNECTED and cont &lt; max_intentos) {
                     cont++;
-                    digitalWrite (statusLedPin, HIGH);
+                    digitalWrite(statusLedPin, HIGH);
                     delay(500);
-                    digitalWrite (statusLedPin, LOW);
+                    digitalWrite(statusLedPin, LOW);
                     Serial.print(&quot;.&quot;);  // Indicador de progreso
-                    delay (5); // Espera asimetrica para dar la sensación de parpadeo al led
+                    delay(5); // Espera asimétrica para dar la sensación de parpadeo al led
                 }
                 &emsp;
                 // Esta función mejora los resultados de las funciones aleatorias y toma como semilla el contador de tiempo
                 randomSeed(micros());
                 &emsp;
                 // Mensajes de confirmación
-                if(cont < max_intentos){
+                if(cont &lt; max_intentos) {
                     Serial.println(&quot;\n*************************&quot;);
                     Serial.print(&quot;Conectado a la red WiFi: &quot;);
                     Serial.println(WiFi.SSID());
@@ -59,11 +59,11 @@ El módulo ESP8266 es un módulo de bajo costo que permite la conexión a Intern
                     Serial.print(&quot;macAddress: &quot;);
                     Serial.println(WiFi.macAddress());
                     Serial.println(&quot;*************************&quot;);
-                }else{
+                } else {
                     Serial.println(&quot;-------------------------------&quot;);
                     Serial.println(&quot;Error de conexion&quot;);
-                    digitalWrite (statusLedPin, HIGH);
-                    digitalWrite (errorLedPin, LOW);
+                    digitalWrite(statusLedPin, HIGH);
+                    digitalWrite(errorLedPin, LOW);
                     Serial.println(&quot;-------------------------------&quot;);
                 }
             }
@@ -72,8 +72,8 @@ El módulo ESP8266 es un módulo de bajo costo que permite la conexión a Intern
                 Serial.begin(9600);
                 pinMode(statusLedPin, OUTPUT);
                 pinMode(errorLedPin, OUTPUT);
-                digitalWrite (statusLedPin, HIGH);
-                digitalWrite (errorLedPin, HIGH);
+                digitalWrite(statusLedPin, HIGH);
+                digitalWrite(errorLedPin, HIGH);
                 setup_wifi();
             }
             &emsp;
@@ -114,31 +114,31 @@ El módulo ESP32 es una placa de bajo costo que permite la conexión a Internet 
             int errorLedPin = 21;
             &emsp;
             void setup_wifi() {
-            delay(10);
-            // Mensajes de intento de conexión
-            Serial.println();
-            Serial.print(&quot;Conectando a: &quot;);
-            Serial.print(ssid);
-            Serial.print(&quot; &quot;);
-            &emsp;
+                delay(10);
+                // Mensajes de intento de conexión
+                Serial.println();
+                Serial.print(&quot;Conectando a: &quot;);
+                Serial.print(ssid);
+                Serial.print(&quot; &quot;);
+                &emsp;
                 // Funciones de conexión
                 WiFi.begin(ssid, password);
-            &emsp;
+                &emsp;
                 // Secuencia que hace parpadear los leds durante el intento de conexión.
-                while (WiFi.status() != WL_CONNECTED and cont < max_intentos) {
+                while (WiFi.status() != WL_CONNECTED and cont &lt; max_intentos) {
                     cont++;
-                    digitalWrite (statusLedPin, HIGH);
+                    digitalWrite(statusLedPin, HIGH);
                     delay(500);
-                    digitalWrite (statusLedPin, LOW);
+                    digitalWrite(statusLedPin, LOW);
                     Serial.print(&quot;.&quot;);  // Indicador de progreso
-                    delay (100); // Espera asimetrica para dar la sensación de parpadeo al led
+                    delay(100); // Espera asimétrica para dar la sensación de parpadeo al led
                 }
-            &emsp;
+                &emsp;
                 // Esta función mejora los resultados de las funciones aleatorias y toma como semilla el contador de tiempo
                 randomSeed(micros());
-            &emsp;
+                &emsp;
                 // Mensajes de confirmación
-                if(cont < max_intentos){
+                if (cont &lt; max_intentos) {
                     Serial.println(&quot;\n*************************&quot;);
                     digitalWrite(statusLedPin, HIGH);
                     digitalWrite(errorLedPin, LOW);
@@ -149,11 +149,11 @@ El módulo ESP32 es una placa de bajo costo que permite la conexión a Internet 
                     Serial.print(&quot;macAddress: &quot;);
                     Serial.println(WiFi.macAddress());
                     Serial.println(&quot;*************************&quot;);
-                }else{
+                } else {
                     Serial.println(&quot;-------------------------------&quot;);
                     Serial.println(&quot;Error de conexion&quot;);
-                    digitalWrite (statusLedPin, LOW);
-                    digitalWrite (errorLedPin, HIGH);
+                    digitalWrite(statusLedPin, LOW);
+                    digitalWrite(errorLedPin, HIGH);
                     Serial.println(&quot;-------------------------------&quot;);
                 }
             }
