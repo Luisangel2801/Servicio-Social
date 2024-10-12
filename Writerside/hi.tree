@@ -29,5 +29,6 @@
             <toc-element topic="Sensor-DHT-con-la-pantalla-LCD.md"/>
             <toc-element topic="Sensor-BH1750-con-la-pantalla-LCD.md"/>
         </toc-element>
+        <toc-element topic="MQ135.md"/>
     </toc-element>
 </instance-profile>
