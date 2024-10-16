@@ -23,6 +23,7 @@
         </toc-element>
     </toc-element>
     <toc-element toc-title="Circuitos">
+        <toc-element topic="Tarjeta-de-Desarrollo.md"/>
         <toc-element topic="Blink.md"/>
         <toc-element topic="Sensor-DHT.md"/>
         <toc-element topic="Sensor-BH1750.md"/>
