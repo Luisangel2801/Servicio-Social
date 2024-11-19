@@ -16,7 +16,7 @@ Raspberry Pi OS es un sistema operativo basado en Debian, diseñado para la Rasp
 ## Instalación de Raspberry Pi OS
 <procedure title ="Pasos para instalar Raspberry Pi OS en la tarjeta microSD" id = "Instalar-Pi-OS" type="steps">
     <step>
-        <p> Descargar el instalador de Raspberry Pi OS desde el <a href="https://www.raspberrypi.com/software/">sitio web oficial</a> de Raspberry Pi. </p>
+        <p> Descargar el instalador de Raspberry Pi OS desde el <a href="https://www.raspberrypi.com/software/" summary="Sitio oficial para descargar el instalador de Raspberry Pi OS">sitio web oficial</a> de Raspberry Pi. </p>
         <img src="descargarInstalador.png" alt="Descargar instalador" width="400" border-effect="rounded" thumbnail="true"/>
     </step>
     <step>
