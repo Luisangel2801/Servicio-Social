@@ -2,58 +2,81 @@
 
 ## Conectar via SSH
 
-Una vez que se haya instalado Raspberry Pi OS en la tarjeta microSD, es posible acceder a la Raspberry Pi de forma remota mediante SSH. Para ello, es necesario seguir los siguientes pasos:
+Una vez que se haya instalado Raspberry Pi OS en la tarjeta microSD, es posible acceder a la Raspberry Pi de forma remota mediante SSH. A continuación se detallan los pasos necesarios:
 
-1. Para conocer la dirección IP de la Raspberry Pi, es necesario acceder al panel de administración del router o utilizar una aplicación como Fing para escanear la red local.
+> En caso de no haber agregado las credenciales para la conexión a la red durante la [instalación de Raspberry Pi OS](Instalación-de-Raspberry-Pi-OS.md "Documentación para la instalación de Raspberry Pi OS"), es necesario conectar la Raspberry Pi mediante un cable Ethernet.
+
+1. **Obtener la dirección IP de la Raspberry Pi**
+
+    Para conocer la dirección IP de la Raspberry Pi, es necesario acceder al panel de administración del router o utilizar una aplicación como Fing para escanear la red local.
 
     ![Fing](fing.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-2. Una vez que se conozca la dirección IP de la Raspberry Pi, es posible acceder a ella mediante SSH. Para ello, es necesario abrir una terminal y ejecutar el siguiente comando:
+2. **Acceder a la Raspberry Pi mediante SSH**
 
-    > La dirección IP es un ejemplo, es necesario reemplazarla por la dirección IP de la Raspberry Pi.
-    > {style = note}
+    Una vez que se conozca la dirección IP de la Raspberry Pi, es posible acceder a ella mediante SSH. Para ello, abre una terminal y ejecuta el siguiente comando, reemplazando la dirección IP de ejemplo por la dirección correcta de tu Raspberry Pi.
+
+    > La dirección IP utilizada en este ejemplo es solo referencial. Sustitúyela por la IP que se obtuvo en el paso anterior. {style = note}
     ```bash
     ssh pi@10.213.1.89
     ```
 
-3. Al ejecutar el comando, se mostrará un mensaje de confirmación para agregar la clave RSA del servidor. Es necesario escribir "yes" y presionar "Enter". Posteriormente, se solicitará la contraseña del usuario "pi" que se configuró durante la instalación.
+3. **Confirmar la conexión**
+
+    Al ejecutar el comando, aparecerá un mensaje solicitando agregar la clave RSA del servidor. Es necesario escribir `yes` y presionar "Enter". A continuación, se solicitará la contraseña del usuario `pi` que configuraste durante la instalación del sistema operativo.
 
     ![SSH](ssh.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-4. Una vez que se haya ingresado la contraseña, se mostrará el prompt de la Raspberry Pi.
+4. **Acceso al terminal**
+
+    Después de ingresar la contraseña correctamente, se mostrará el prompt de la Raspberry Pi, lo que indica que ahora puedes ejecutar comandos en el sistema de manera remota.
 
     ![Promt Raspberry](promptRaspberry.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-5. Ahora es posible ejecutar comandos en la Raspberry Pi de forma remota.
+5. **Ejecutar comandos remotamente**
+
+    Ya puedes utilizar la terminal de la Raspberry Pi como si estuvieras trabajando directamente sobre ella, sin necesidad de un monitor.
 
 ## Habilitar el acceso remoto a la interfaz gráfica
 
-Para habilitar el acceso remoto a la interfaz gráfica de la Raspberry Pi, es necesario instalar un servidor VNC. Para ello, es necesario seguir los siguientes pasos:
+Si deseas acceder a la interfaz gráfica de la Raspberry Pi de forma remota, necesitarás instalar un servidor VNC. A continuación se explica cómo configurarlo:
 
-1. Desde la conexión SSH, es necesario ejecutar el siguiente comando para abrir la configuración de la Raspberry Pi:
+1. **Abrir la configuración de la Raspberry Pi**
+
+    Desde la conexión SSH, es necesario ejecutar el siguiente comando para abrir la configuración de la Raspberry Pi:
 
     ```bash
     sudo raspi-config
     ```
 
-2. Navegar hasta la opción "Interfacing Options" y seleccionar "VNC".
+2. **Activar el servidor VNC**
 
-   ![VNC](vnc.png) {border-effect="rounded" width="400" thumbnail="true"}
+    Navegar hasta la opción "Interfacing Options" y seleccionar "VNC" para habilitar el servidor VNC.
 
-3. Al seleccionar "VNC", se mostrará un mensaje de confirmación para habilitar el servicio. Es necesario seleccionar "Yes" y presionar "Enter".
+    ![VNC](vnc.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-   ![Habilitar VNC](habilitarVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
+3. **Confirmar la habilitación de VNC**
 
-4. Una vez que se haya habilitado el servicio de VNC, es necesario instalar un cliente de VNC en la computadora desde la que se desea acceder a la Raspberry Pi. Una opción recomendada es RealVNC, el cual se puede descargar desde el siguiente [enlace](https://www.realvnc.com/es/connect/download/viewer/).
+    Se mostrará un mensaje de confirmación para activar el servicio. Selecciona "Yes" y presiona "Enter" para habilitar el servidor VNC en tu Raspberry Pi.
 
-   ![RealVNC](realVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
+    ![Habilitar VNC](habilitarVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-5. Al abrir RealVNC, es necesario ingresar la dirección IP de la Raspberry Pi y el nombre de usuario y contraseña que se configuraron durante la instalación.
+4. **Instalar un cliente VNC en tu computadora**
 
-   ![RealVNC](ingresarVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
+    Una vez que el servidor VNC esté habilitado, necesitarás un cliente VNC para acceder a la interfaz gráfica de la Raspberry Pi. Una opción recomendada es RealVNC, el cual puedes descargarlo desde [aquí](https://www.realvnc.com/es/connect/download/viewer/).
 
-6. Al hacer clic en "Conectar", se mostrará la interfaz gráfica de la Raspberry Pi.
+    ![RealVNC](realVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
 
-   ![Interfaz gráfica](interfazGrafica.png) {border-effect="rounded" width="400" thumbnail="true"}
+5. **Conectar mediante RealVNC**
 
-> Se realizó la conexión a la Raspberry Pi de forma remota mediante SSH y VNC.
+    Abre la aplicación RealVNC e ingresa la dirección IP de la Raspberry Pi junto con el nombre de usuario y la contraseña que configuraste durante la instalación del sistema operativo.
+
+    ![RealVNC](ingresarVNC.png) {border-effect="rounded" width="400" thumbnail="true"}
+
+6. **Acceder a la interfaz gráfica**
+
+   Al hacer clic en "Conectar", se abrirá la interfaz gráfica de la Raspberry Pi en la pantalla de tu computadora.
+
+    ![Interfaz gráfica](interfazGrafica.png) {border-effect="rounded" width="400" thumbnail="true"}
+
+> Se logró la conexión remota a la Raspberry Pi mediante SSH para el acceso a la terminal y VNC para la interfaz gráfica.
