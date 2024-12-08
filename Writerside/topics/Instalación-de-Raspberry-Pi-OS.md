@@ -44,7 +44,7 @@ En este documento se describen los pasos para instalar Raspberry Pi OS en una ta
             <li>Establecer la región y la zona horaria</li>
         </list>
         <note>
-            <p style="note"><control>Consejo importante:</control> Asegúrate de configurar el SSID y la contraseña de la red wifi para poder acceder a la Raspberry Pi de forma remota.</p>
+            <p style="note"><control> Nota:</control> Asegúrate de configurar el SSID y la contraseña de la red wifi para poder acceder a la Raspberry Pi de forma remota.</p>
         </note>
         <img src="configuraciones.png" alt="Configuraciones" width="400" border-effect="rounded" thumbnail="true"/>
     </step>
@@ -69,7 +69,7 @@ En este documento se describen los pasos para instalar Raspberry Pi OS en una ta
     </step>
 </procedure>
 
-> En caso de no contar con un monitor, teclado y ratón, puedes seguir los pasos descritos en el documento [utilizar la Raspberry Pi sin monitor](Utilizar-Raspberry-Pi-sin-monitor.md).
+> **Nota:** En caso de no contar con un monitor, teclado y ratón, puedes seguir los pasos descritos en el documento [utilizar la Raspberry Pi sin monitor](Utilizar-Raspberry-Pi-sin-monitor.md) para utilizar el Raspberry Pi.
 > {style=note}
 
-> Se realizó la instalación de Raspberry Pi OS en un raspberry Pi 4 con 4 GB de RAM.
+> **Resultado:** Se realizó la instalación del sistema operativo Raspberry Pi OS en una tarjeta microSD y se configuró la Raspberry Pi para su uso.

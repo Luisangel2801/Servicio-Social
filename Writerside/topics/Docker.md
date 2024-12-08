@@ -1,93 +1,88 @@
 # Docker
 
-Docker es una plataforma de código abierto que permite automatizar el despliegue de aplicaciones dentro de contenedores
-de software.
-Los contenedores permiten empaquetar una aplicación con todas sus dependencias, lo que garantiza que la aplicación se
-ejecute de la misma forma en cualquier entorno.
+Docker es una plataforma de contenedores de código abierto que permite automatizar el despliegue de aplicaciones dentro de contenedores de software. Con el eslogan **“Build, Ship and Run Any App, Anywhere”** (Construye, Envía y Ejecuta Cualquier Aplicación, en Cualquier Lugar), Docker ofrece una alternativa flexible y eficiente a la emulación de componentes de hardware basada en máquinas virtuales (VM).
 
 ![Docker](docker.png) {width="700"}
 
-> Realizamos la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, utilizando el sistema operativo Raspberry Pi OS.
-> {style="warning"}
+## Descripción
 
-## Instalación
-Para instalar Docker en una Raspberry Pi, seguimos los siguientes pasos:
+Docker está diseñado para desarrollar, enviar y ejecutar aplicaciones aprovechando la tecnología de contenedores. A diferencia de la virtualización tradicional, que implica iniciar diferentes sistemas huéspedes en un mismo sistema anfitrión (host), Docker permite que las aplicaciones se ejecuten como procesos aislados dentro del mismo sistema mediante contenedores. Esto logra una virtualización a nivel del sistema operativo, proporcionando múltiples beneficios:
 
-1. Actualizamos la lista de paquetes disponibles y sus versiones.
+1. **Aislamiento de Aplicaciones**: Las aplicaciones en contenedores se ejecutan de forma aislada, lo que garantiza que no interfieran entre sí y que los cambios en una aplicación no afecten a otras.
+2. **Portabilidad**: Las aplicaciones en contenedores son portátiles y se pueden ejecutar en cualquier entorno que tenga Docker instalado, independientemente de las diferencias en el sistema operativo o la infraestructura subyacente.
+3. **Eficiencia**: Los contenedores comparten el núcleo del sistema operativo del anfitrión, lo que los hace más ligeros y eficientes en términos de recursos que las máquinas virtuales tradicionales.
 
-    ```bash
-    sudo apt update
-    ```
+### Docker se presenta en dos versiones principales:
+- **Docker Community Edition (CE)**: Versión gratuita y de código abierto destinado a desarrolladores y pequeños equipos.
+- **Docker Enterprise Edition (EE)**: Versión comercial con características adicionales de seguridad, gestión y soporte, dirigida a organizaciones más grandes.
 
-2. Descargar el siguiente fichero de instalación de Docker.
+## Componentes de Docker
 
-    ```bash
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    ```
+![DockerComponents](docker_objeto.png) {width="700"}
 
-3. Ejecutar el script de instalación de Docker.
+### Dockerfile
 
-    ```bash
-    sudo sh get-docker.sh
-    ```
+Un Dockerfile es un archivo de texto que contiene una serie de instrucciones para construir una imagen Docker.  El Dockerfile facilita la creación de imágenes personalizadas, permitiendo que los desarrolladores especifiquen cómo deben ser construidas, qué dependencias se necesitan y qué procesos deben ejecutarse al iniciar la imagen.
 
-4. Para evitar utilizar el comando `sudo` cada vez que ejecutamos un comando de Docker, agregamos el usuario al
-   grupo `docker`.
+### Docker Image
 
-    ```bash
-    sudo usermod -aG docker $USER
-    ```
+Las imágenes de Docker son plantillas de solo lectura y se crean a partir de un conjunto de instrucciones especificadas en un archivo Docker, conocido como **Dockerfile**. El comando `docker build` lee estas instrucciones y genera la imagen correspondiente. Las imágenes actúan como plantillas para crear contenedores Docker, es decir, contienen los detalles sobre cómo debe empaquetarse la aplicación y sus dependencias, así como los procesos que deben ejecutarse cuando se inicia un contenedor.
 
-5. Reiniciamos la Raspberry Pi.
+### Contenedor
 
-    ```bash
-    sudo reboot
-    ```
+Un contenedor Docker es una instancia en ejecución de una imagen Docker. Proporciona una virtualización ligera a nivel del sistema operativo mediante la abstracción del "espacio del usuario". Los contenedores comparten el núcleo del sistema host con otros contenedores, lo que los hace más eficientes en términos de recursos comparados con las máquinas virtuales tradicionales. En términos sencillos, una imagen es una plantilla que define la configuración de la aplicación, mientras que un contenedor es una instancia en ejecución de esa plantilla.
 
-6. Verificamos que Docker se ha instalado correctamente ejecutando el siguiente comando.
+### Volumen Docker
 
-    ```bash
-    docker --version
-    ```
+Un volumen Docker es un mecanismo de almacenamiento persistente que permite a los contenedores acceder y compartir datos con el sistema de archivos del sistema host. Los volúmenes se utilizan para almacenar datos que deben persistir más allá del ciclo de vida de un contenedor.
 
-7. Creamos un directorio para almacenar los datos de los contenedores que crearemos en el futuro.
+## Comparación entre Contenedores y Máquinas Virtuales
 
-    ```bash
-    mkdir ~/docker
-    ```
+Los contenedores son ligeros al compartir el sistema operativo del anfitrión, lo que los hace ideales para una implementación rápida. Por su parte, las máquinas virtuales cuentan con su propio sistema operativo, brindando un mayor aislamiento, aunque a costa de un mayor consumo de recursos.
 
-8. Cambiamos los permisos del directorio para que el usuario pueda escribir en él.
+![DockerVsVM](dockerVsVM.png) {width="700"}
 
-    ```bash
-    sudo chown $USER ~/docker
-    ```
+### Máquinas Virtuales
 
-## Comandos básicos
+Una máquina virtual (VM) es una tecnología que permite la virtualización a nivel de hardware, facilitando la ejecución de múltiples sistemas operativos en una única máquina física. Cada VM opera como un sistema aislado, con su propio sistema operativo, aplicaciones y dependencias. Esto se logra mediante el software denominado "hipervisor", el cual asigna recursos de hardware, como núcleos de CPU y almacenamiento, a cada máquina virtual.
 
-{type="wide"}
-`docker --version`
-: Muestra la versión de Docker instalada.
+La arquitectura de una máquina virtual suele constar de los siguientes componentes:
 
-`docker run hello-world`
-: Descarga una imagen de prueba y la ejecuta en un contenedor.
+- **Hardware:** La máquina física.
+- **Sistema operativo:** El sistema operativo instalado en la máquina física.
+- **Hipervisor:** El software que asigna recursos a las máquinas virtuales.
+- **SO huésped:** El sistema operativo instalado en cada máquina virtual.
+- **Aplicación:** El software que se ejecuta en la máquina virtual.
+- **Dependencias:** Las bibliotecas/binarios necesarios para ejecutar la aplicación.
 
-`docker ps`
-: Muestra los contenedores en ejecución.
+![VirtualMachine](docker_MV.png) {width="500"}
 
-`docker ps -a`
-: Muestra todos los contenedores, incluidos los que están detenidos.
+### Contenedores
 
-`docker stop CONTAINER_ID`
-: Detiene un contenedor en ejecución.
+Un contenedor es una forma de virtualización que opera a nivel del sistema operativo, permitiendo que múltiples aplicaciones se ejecuten sobre el mismo núcleo del SO. A diferencia de las máquinas virtuales, los contenedores no incluyen su propio sistema operativo, sino que comparten el sistema operativo anfitrión, lo que los hace mucho más ligeros y eficientes.
 
-`docker start CONTAINER_ID`
-: Inicia un contenedor detenido.
+Los contenedores integran una aplicación junto con todas sus dependencias, y están diseñados para funcionar de manera consistente, sin importar el entorno en el que se desplieguen.
 
-`docker rm CONTAINER_ID`
-: Elimina un contenedor.
+Una arquitectura de contenedores típica consta de los siguientes componentes:
 
-`docker exec -it CONTAINER_ID comando`
-: Ejecuta un comando en un contenedor en ejecución.
+- **Hardware:** La máquina física.
+- **Sistema operativo anfitrión:** El sistema operativo de la máquina física (o VM).
+- **Motor de contenedor:** Software que gestiona la creación y el mantenimiento de contenedores.
+- **Aplicación:** El software que se ejecuta en el contenedor.
+- **Dependencias:** Las bibliotecas/binarios necesarios para ejecutar la aplicación.
 
-> Se realizó la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, lo que permitirá instalar aplicaciones con
-> todas sus dependencias y ejecutarlas de la misma forma en cualquier entorno. Además, se creó un directorio para almacenar los datos de los contenedores que se crearán en el futuro.
+![DockerContainer](docker_contenedor.png) {width="500"}
+
+## Docker Hub
+
+[Docker Hub](https://hub.docker.com/ "Página oficial de Docker Hub") es un servicio de registro basado en la nube proporcionado por Docker para almacenar y compartir imágenes de Docker. Sirve como repositorio predeterminado para los contenedores Docker, lo que facilita la distribución de aplicaciones en contenedores y la colaboración entre desarrolladores.
+
+![DockerHub](docker_hub.png) {width="700"}
+
+### Características de Docker Hub
+
+- **Repositorios públicos:** Son repositorios de código abierto en los que cualquiera puede compartir y acceder a imágenes de Docker. Los desarrolladores pueden buscar imágenes, extraerlas y ejecutarlas localmente o en la nube.
+- **Repositorios privados:** Son repositorios de pago que permiten a los usuarios almacenar imágenes de Docker de forma segura y restringir el acceso. Esto es útil para las organizaciones que necesitan mantener la privacidad de sus aplicaciones personalizadas o imágenes propietarias.
+- **Compilaciones automatizadas:** Docker Hub puede crear imágenes automáticamente desde un repositorio de GitHub o Bitbucket. Cada vez que se insertan cambios en el código fuente, Docker Hub puede desencadenar una nueva compilación y actualizar la imagen automáticamente.
+- **Control de versiones:** Docker Hub admite el control de versiones, por lo que los desarrolladores pueden enviar varias versiones de una imagen, lo que facilita la administración de diferentes etapas de desarrollo o versiones.
+- **Comunidad de Docker Hub:** Docker Hub sirve como un lugar para que la comunidad de Docker colabore, comparta aplicaciones en contenedores y contribuya a proyectos de código abierto.

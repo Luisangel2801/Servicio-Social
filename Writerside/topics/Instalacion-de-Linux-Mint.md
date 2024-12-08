@@ -2,6 +2,8 @@
 
 Linux Mint es una distribución de Linux basada en Ubuntu que ofrece una experiencia de usuario amigable y fácil de usar. En este documento se describen los pasos necesarios para instalar Linux Mint en un equipo con Windows utilizando dual boot.
 
+![Linux Mint](linuxMint.png) {width="700"}
+
 ## Requisitos
 
 - Un equipo con Windows instalado.
