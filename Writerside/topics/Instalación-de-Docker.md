@@ -7,7 +7,7 @@ ejecute de la misma forma en cualquier entorno.
 
 ![Docker](docker.png) {width="700"}
 
-> Esta guía detalla cómo realizar la instalación de Docker en una Raspberry Pi 4 con 4GB de RAM, utilizando el sistema operativo Raspberry Pi OS.
+> Esta guía detalla cómo realizar la instalación de Docker en una Raspberry Pi 4 con 4 GB de RAM, utilizando el sistema operativo Raspberry Pi OS.
 
 ## Instalación
 
@@ -31,7 +31,7 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 
 ### 3. Ejecutar el script de instalación
 
-Ejecuta el script descargado para instalar Docker. Este script automáticamente configura Docker en el rasbperry Pi.
+Ejecuta el script descargado para instalar Docker. Este script automáticamente configura Docker en el raspberry Pi.
 
 ```bash
 sudo sh get-docker.sh

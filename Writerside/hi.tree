@@ -21,6 +21,7 @@
             <toc-element topic="Docker-Portainer.md"/>
             <toc-element topic="Instalación-de-InfluxDB.md"/>
             <toc-element topic="Instalación-de-NodeRed.md"/>
+            <toc-element topic="Grafana.md"/>
         </toc-element>
     </toc-element>
     <toc-element toc-title="Circuitos">
