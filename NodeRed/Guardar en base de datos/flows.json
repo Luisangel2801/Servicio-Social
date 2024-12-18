@@ -1,0 +1,490 @@
+[
+    {
+        "id": "c99805c7265983d0",
+        "type": "tab",
+        "label": "Guardar base de Datos",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "044f969b77c56906",
+        "type": "json",
+        "z": "c99805c7265983d0",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "73f9612b223eea57",
+                "678438d6b3a660f1",
+                "4de355367c81f2de",
+                "ba17684f9f3f2324",
+                "6dd55fc66acfaf21",
+                "ce7b98f343659fd3"
+            ]
+        ]
+    },
+    {
+        "id": "73f9612b223eea57",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "ID",
+        "func": "msg.payload = msg.payload.ID;\nmsg.topic = \"Dispositivo\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4de355367c81f2de",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "Humedad",
+        "func": "msg.payload = msg.payload.humidity;\nmsg.topic = \"Humedad\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 440,
+        "wires": [
+            [
+                "f474716d1b62c3ea"
+            ]
+        ]
+    },
+    {
+        "id": "6dd55fc66acfaf21",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "Gas",
+        "func": "let datos = {\n    cubiculo: msg.payload.cubiculo,\n    edificio: msg.payload.edificio,\n    co2 : msg.payload.CO2,\n    id: msg.payload.id,\n};\n\nmsg.payload = msg.payload.CO2;\nmsg.topic = \"Gas\";\n\nmsg.data = datos;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 680,
+        "wires": [
+            [
+                "aa625a1284231624",
+                "898d78ee8511ed0d"
+            ]
+        ]
+    },
+    {
+        "id": "0b99ef7f419c992c",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f474716d1b62c3ea",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1b46c1d6c46ea257",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "678438d6b3a660f1",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "Temperatura",
+        "func": "msg.payload = msg.payload.temperature;\nmsg.topic = \"Temperatura\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 320,
+        "wires": [
+            [
+                "0b99ef7f419c992c"
+            ]
+        ]
+    },
+    {
+        "id": "ba17684f9f3f2324",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "Lumenes",
+        "func": "msg.payload = msg.payload.lux;\nmsg.topic = \"Lumenes\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 560,
+        "wires": [
+            [
+                "1b46c1d6c46ea257"
+            ]
+        ]
+    },
+    {
+        "id": "aa625a1284231624",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "898d78ee8511ed0d",
+        "type": "switch",
+        "z": "c99805c7265983d0",
+        "name": "Alerta",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "300",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 970,
+        "y": 740,
+        "wires": [
+            [
+                "462cf96084857a3f"
+            ]
+        ]
+    },
+    {
+        "id": "462cf96084857a3f",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "function 6",
+        "func": "msg.topic = \"SELECT * FROM usuarios WHERE edificio = '\" + \n    msg.data.edificio + \"' and cubiculo =\" + \n    msg.data.cubiculo +\";\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 740,
+        "wires": [
+            [
+                "14d3bf2d341d7a6e"
+            ]
+        ]
+    },
+    {
+        "id": "fce5a56ad93cf093",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "Usuario no registrado",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1940,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "ce7b98f343659fd3",
+        "type": "influxdb out",
+        "z": "c99805c7265983d0",
+        "influxdb": "12dfae2b47f1f239",
+        "name": "",
+        "measurement": "datos_sensores",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0e3571874e81eab1",
+        "type": "mqtt in",
+        "z": "c99805c7265983d0",
+        "name": "publicar",
+        "topic": "nodeRed/sensores",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cc0526a58986b762",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "044f969b77c56906"
+            ]
+        ]
+    },
+    {
+        "id": "14d3bf2d341d7a6e",
+        "type": "mysql",
+        "z": "c99805c7265983d0",
+        "mydb": "90c65bddbbb527c7",
+        "name": "",
+        "x": 1410,
+        "y": 740,
+        "wires": [
+            [
+                "d99c27de166591d9"
+            ]
+        ]
+    },
+    {
+        "id": "d99c27de166591d9",
+        "type": "switch",
+        "z": "c99805c7265983d0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1650,
+        "y": 740,
+        "wires": [
+            [
+                "6e3eb81c4f0ea140"
+            ],
+            [
+                "fce5a56ad93cf093"
+            ]
+        ]
+    },
+    {
+        "id": "6e3eb81c4f0ea140",
+        "type": "function",
+        "z": "c99805c7265983d0",
+        "name": "Mensaje de que el usuario ya está registrado",
+        "func": "let mensaje = \"‼️*Gas detectado en el cubículo*‼️💨\\r\\n\" + \n\"CO2: \" + msg.data.co2 + \" ppm\\r\\n\";\nlet id = msg.payload[0].id_telegram;\n\nmsg.payload = {\n    chatId: id,\n    type: \"message\",\n    content: mensaje\n};\n\nmsg.payload.options = {\n    disable_web_page_preview: true,\n    parse_mode: \"Markdown\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1990,
+        "y": 620,
+        "wires": [
+            [
+                "2b5c7d10eced6a98",
+                "8a238db21e0e6eb0"
+            ]
+        ]
+    },
+    {
+        "id": "2b5c7d10eced6a98",
+        "type": "debug",
+        "z": "c99805c7265983d0",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2340,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "8a238db21e0e6eb0",
+        "type": "telegram sender",
+        "z": "c99805c7265983d0",
+        "name": "Notifica el mensaje de bienvenida",
+        "bot": "dd1eda5eaf1864d8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 2380,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12dfae2b47f1f239",
+        "type": "influxdb",
+        "hostname": "192.168.1.112",
+        "port": "8086",
+        "protocol": "http",
+        "database": "sensores",
+        "name": "conexion BBDD",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://10.213.1.206:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "cc0526a58986b762",
+        "type": "mqtt-broker",
+        "name": "EMQX_online",
+        "broker": "broker.emqx.io",
+        "port": "8883",
+        "tls": "073b41ed983e7b6a",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "90c65bddbbb527c7",
+        "type": "MySQLdatabase",
+        "name": "BD telegram",
+        "host": "10.213.1.206",
+        "port": "3306",
+        "db": "sistema_usuarios",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "dd1eda5eaf1864d8",
+        "type": "telegram bot",
+        "botname": "Lab_IoT_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "addressfamily": "",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "073b41ed983e7b6a",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "broker.emqx.io-ca.crt",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    }
+]
