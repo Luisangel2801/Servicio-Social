@@ -6,9 +6,13 @@ switcher-label: Placa
 
 ## Descripción
 
-La pantalla LCD (Liquid Crystal Display) es un dispositivo que permite mostrar información en forma de texto o gráficos. Este tipo de pantalla es muy utilizado en proyectos de electrónica y robótica para mostrar datos de sensores, mensajes de estado, entre otros.
+La pantalla LCD (Liquid Crystal Display) 16x2 es un dispositivo capaz de mostrar información en forma de texto, muy utilizado en proyectos IoT. Gracias a su interfaz I2C, la conexión con microcontroladores como el ESP8266 y el ESP32 se simplifica, reduciendo el número de pines necesarios para la comunicación.
 
-En este documento se describe como conectar una pantalla LCD 16x2 a una placa de desarrollo ESP8266 o ESP32 a través de la interfaz I2C.
+### ¿Qué es I2C?
+
+I2C (Inter-Integrated Circuit) es un protocolo de comunicación serial síncrono que utiliza únicamente dos líneas: SDA (datos) y SCL (reloj). Este protocolo permite conectar múltiples dispositivos en un mismo bus, identificándolos mediante direcciones únicas. Su simplicidad y bajo consumo de pines lo hace ideal para pantallas LCD, sensores y otros periféricos.
+
+![I2C](i2c.jpeg) {width="700"}
 
 ## Características de la pantalla LCD
 
@@ -21,21 +25,29 @@ En este documento se describe como conectar una pantalla LCD 16x2 a una placa de
 
 ## Esquema de conexión para el ESP8266 {switcher-key="ESP8266"}
 
-La pantalla LCD se conecta a la placa de desarrollo ESP8266 a través de la interfaz I2C. A continuación se muestra el esquema de conexión de la pantalla LCD a la placa de desarrollo ESP8266.
+Para la conexión de la pantalla LCD a la placa de desarrollo ESP8266 se utiliza la interfaz I2C. A continuación se muestra el esquema de conexión de la pantalla LCD a la placa de desarrollo ESP8266.
+
+- VCC → 5 V (Fuente de alimentación externa)
+- GND → GND
+- SDA → GPIO4 (D2)
+- SCL → GPIO5 (D1)
 
 ![LCD ESP8266](LCD_ESP8266.png) {border-effect="rounded" width="500" thumbnail="true"}
 
-> Es importante conectar la pantalla LCD a la salida de 5V de la fuente de alimentación y no conectar directamente a la placa de desarrollo, ya que la corriente que consume la pantalla LCD es mayor que la que puede suministrar la placa de desarrollo.
-> {style="warning"}
+> **Nota:** Conectar la pantalla LCD a la salida de 5 V de una fuente de alimentación externa es recomendable. La pantalla puede requerir más corriente de la que la placa de desarrollo puede suministrar directamente.
 
-## Esquema de conexión para el  ESP32 {switcher-key="ESP32"}
+## Esquema de conexión para el ESP32 {switcher-key="ESP32"}
 
-La pantalla LCD se conecta a la placa de desarrollo ESP32 a través de la interfaz I2C. A continuación se muestra el esquema de conexión de la pantalla LCD a la placa de desarrollo ESP32.
+Para la conexión de la pantalla LCD a la placa de desarrollo ESP32 se utiliza la interfaz I2C. A continuación se muestra el esquema de conexión de la pantalla LCD a la placa de desarrollo ESP32.
+
+- VCC → 5 V (Fuente de alimentación externa)
+- GND → GND
+- SDA → GPIO21 (D21)
+- SCL → GPIO22 (D22)
 
 ![LCD ESP32](LCD_ESP32.png) {border-effect="rounded" width="500" thumbnail="true"}
 
-> Es importante conectar la pantalla LCD a la salida de 5V de la fuente de alimentación y no conectar directamente a la placa de desarrollo, ya que la corriente que consume la pantalla LCD es mayor que la que puede suministrar la placa de desarrollo.
-> {style="warning"}
+> **Nota:** Conectar la pantalla LCD a la salida de 5 V de una fuente de alimentación externa es recomendable. La pantalla puede requerir más corriente de la que la placa de desarrollo puede suministrar directamente.
 
 ## Código
 
@@ -102,5 +114,4 @@ En el siguiente código se muestra como inicializar la pantalla LCD y mostrar un
     </tab>
 </tabs>
 
-> Se realizó la conexión de la pantalla LCD a la placa de desarrollo ESP8266 y ESP32 a través de la interfaz I2C. Se utilizó la librería LiquidCrystal_I2C para controlar la pantalla LCD.
-> {style="note"}
+> **Resultado:** Se realizó la conexión de la pantalla LCD a la placa de desarrollo ESP8266 y ESP32 mediante la interfaz I2C. Se programó un mensaje en la pantalla LCD que muestra el texto "Hola Mundo" en la primera fila y "LCD I2C" en la segunda fila.

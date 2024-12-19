@@ -4,7 +4,8 @@ Portainer es una interfaz web que nos permite simplificar la administración de 
 
 ![Portainer](portainer.png) {width="700"}
 
-> Esta guía mostrará cómo instalar Portainer en tu sistema Docker, cómo acceder a su interfaz web y cómo utilizar sus principales funcionalidades.
+>**Advertencia:** Asegúrate de tener Docker instalado en tu sistema antes de comenzar con la instalación de Portainer. Si aún no has instalado Docker, consulta la guía [aquí](Docker.md "Documentación para instalar Docker").
+> {style = warning}
 
 ## Instalación de Portainer
 

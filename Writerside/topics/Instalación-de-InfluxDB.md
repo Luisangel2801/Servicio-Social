@@ -4,8 +4,8 @@ InfluxDB es una base de datos de series temporales de código abierto, diseñada
 
 ![influxdb](InfluxData-logo.png) {width="700"}
 
->**Nota:** Asegúrate de tener Docker instalado en tu sistema antes de comenzar con la instalación de InfluxDB. Si aún no has instalado Docker, consulta la guía [aquí](Docker.md "Documentación para instalar Docker").
-> {style = note}
+>**Advertencia:** Asegúrate de tener Docker instalado en tu sistema antes de comenzar con la instalación de InfluxDB. Si aún no has instalado Docker, consulta la guía [aquí](Docker.md "Documentación para instalar Docker").
+> {style = warning}
 
 
 ## Instalación

@@ -4,7 +4,7 @@ Node-RED es una herramienta de programación visual que facilita la conexión de
 
 ![Node-RED](nodeRed.png) {width="700"}
 
-> **Advertencia:** Asegúrate de que Docker esté correctamente instalado y funcionando en tu Raspberry Pi antes de comenzar con la instalación de Node-RED.
+>**Advertencia:** Asegúrate de tener Docker instalado en tu sistema antes de comenzar con la instalación de Node Red. Si aún no has instalado Docker, consulta la guía [aquí](Docker.md "Documentación para instalar Docker").
 > {style = warning}
 
 ## Instalación
