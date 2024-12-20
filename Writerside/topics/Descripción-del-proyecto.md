@@ -12,36 +12,36 @@ La presente documentación tiene como objetivo describir los proyectos realizado
 
 Para desarrollar el proyecto, fue necesario contar con un entorno adecuado. En esta sección se describen los pasos para instalar y configurar:
 
-1. [Instalación de Linux Mint](Instalacion-de-Linux-Mint.md)  
+1. **[Instalación de Linux Mint](Instalacion-de-Linux-Mint.md)**  
    Explica cómo instalar y configurar el sistema operativo Linux Mint, que será la base para el desarrollo de los proyectos.
 
-2. [](Instalación-de-Arduino-IDE.md)
+2. **[](Instalación-de-Arduino-IDE.md)**  
    Muestra cómo instalar y preparar el entorno Arduino IDE para programar los microcontroladores ESP8266 y ESP32.
 
-3. [Visual Studio Code y PlatformIO](Instalación-de-Vscode-y-PlatformIO.md)
+3. **[Visual Studio Code y PlatformIO](Instalación-de-Vscode-y-PlatformIO.md)**  
    Detalla la instalación de Visual Studio Code y la extensión PlatformIO, para programar los microcontroladores de manera más eficiente.
 
-4. [Instalación de MQTTX](MQTT.md)
+4. **[Instalación de MQTTX](MQTT.md)**  
    Indica el procedimiento para instalar MQTTX, un cliente MQTT que permite visualizar y depurar las comunicaciones entre dispositivos y el broker.
 
 ## Configuración del Servidor
 
 Para el despliegue de servicios, se utilizó una Raspberry Pi 4 como servidor. Aquí se detalla la configuración del servidor mediante Docker, lo que facilita la replicación del entorno:
 
-1. [](Docker.md)
+1. **[](Docker.md)**  
    Introducción a la instalación y configuración de Docker en la Raspberry Pi 4, para la gestión de contenedores y
    servicios.
 
-2. [](Docker-Portainer.md)
+2. **[](Docker-Portainer.md)**  
    Explica cómo instalar Portainer, una herramienta gráfica para gestionar contenedores Docker.
 
-3. [Instalación de InfluxDB](Instalación-de-InfluxDB.md)  
+3. **[Instalación de InfluxDB](Instalación-de-InfluxDB.md)**   
    Describe la instalación de InfluxDB para el almacenamiento de datos de sensores en series temporales.
 
-4. [Node-RED](Instalación-de-NodeRed.md)
+4. **[Node-RED](Instalación-de-NodeRed.md)**  
    Detalla cómo instalar Node-RED para la orquestación de flujos y procesamiento de datos IoT.
 
-5. [](Grafana.md)
+5. **[](Grafana.md)**  
    Indica los pasos para instalar Grafana, herramienta de visualización para crear paneles y monitorear datos
    recopilados por InfluxDB.
 
